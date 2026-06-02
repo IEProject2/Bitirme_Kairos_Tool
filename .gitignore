@@ -1,0 +1,51 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Build and distribution
+build/
+dist/
+*.egg-info/
+*.egg
+*.whl
+
+# Coverage
+.coverage
+htmlcov/
+.coverage.*
+
+# Testing
+.tox/
+.hypothesis/
+
+# Generated example output
+examples/output/
+
+# Documentation
+docs/_build/
+site/
+
+# IDE
+*.swp
+*.swo
+*~
+.vscode/settings.json
+
+# Environment
+.env
+.env.local
+.git.incomplete-backup/
+
+# Misc
+*.log
+*.pot
+*.mo
+*.tar.gz

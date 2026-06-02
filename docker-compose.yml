@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: factory-sim-framework
+    volumes:
+      - .:/app
+      - /app/__pycache__
+    ports:
+      - "8080:8080"
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: python -c "from factory_sim import SimulationEngine; print('Factory Sim Framework running')"
+
+  test:
+    build: .
+    container_name: factory-sim-test
+    volumes:
+      - .:/app
+      - /app/__pycache__
+    working_dir: /app
+    command: pytest
+    environment:
+      - PYTHONUNBUFFERED=1

@@ -1,0 +1,110 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "factory-sim-framework"
+version = "0.1.0"
+description = "Constraint programming-based scheduling and simulation validation for multi-stage production systems"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+  {name = "Alen Maryo Turaç", email = "turaca@mef.edu.tr"}
+]
+keywords = ["scheduling", "simulation", "production", "constraint-programming", "simpy"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Manufacturing",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Visualization",
+]
+
+dependencies = [
+  "simpy>=4.1,<5",
+  "plotly>=5.0",
+  "ortools>=9.0",
+  "click>=8.0",
+  "streamlit>=1.28",
+]
+
+[project.optional-dependencies]
+cli = [
+  "click>=8.0",
+]
+gui = [
+  "streamlit>=1.28",
+]
+packaging = [
+  "pyinstaller>=6.0",
+  "pyinstaller-hooks-contrib>=2023.10",
+]
+dev = [
+  "pytest>=7.0",
+  "pytest-cov>=4.0",
+  "black>=23.0",
+  "ruff>=0.0.250",
+  "mypy>=1.0",
+  "sphinx>=5.0",
+  "click>=8.0",
+  "streamlit>=1.28",
+  "pyinstaller>=6.0",
+  "pyinstaller-hooks-contrib>=2023.10",
+]
+docs = [
+  "sphinx>=5.0",
+  "sphinx-rtd-theme>=1.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/turaca-cell/factory-sim-framework"
+Documentation = "https://factory-sim-framework.readthedocs.io"
+Repository = "https://github.com/turaca-cell/factory-sim-framework.git"
+Issues = "https://github.com/turaca-cell/factory-sim-framework/issues"
+
+[project.scripts]
+factory-sim-cli = "factory_sim.cli:main"
+factory-sim-gui = "factory_sim.gui:main"
+
+[tool.factory_sim]
+packages = ["factory_sim"]
+include-package-data = true
+factory_sim = ["py.typed"]
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+include = '\.pyi?$'
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "I", "UP"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "--cov=factory_sim --cov-report=html --cov-report=term-missing"
+
+[tool.coverage.run]
+source = ["factory_sim"]
+omit = ["*/tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "pragma: no cover",
+  "def __repr__",
+  "raise AssertionError",
+  "raise NotImplementedError",
+  "if __name__ == .__main__.:",
+]

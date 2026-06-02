@@ -1,0 +1,29 @@
+{
+  "status": "completed",
+  "configuration": {
+    "name": "Sample Production Schedule",
+    "machines": [
+      {
+        "name": "Machine1",
+        "available_hours": 8
+      }
+    ],
+    "operations": [
+      {
+        "id": "op1",
+        "duration": 1.0,
+        "machine": "Machine1"
+      }
+    ],
+    "initial_state": {
+      "machines": [],
+      "operations": []
+    }
+  },
+  "summary": {
+    "name": "Sample Production Schedule",
+    "machine_count": 1,
+    "operation_count": 1,
+    "visualization_requested": false
+  }
+}

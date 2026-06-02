@@ -1,0 +1,20 @@
+{
+  "name": "Sample Production Schedule",
+  "machines": [
+    {
+      "name": "Machine1",
+      "available_hours": 8
+    }
+  ],
+  "operations": [
+    {
+      "id": "op1",
+      "duration": 1.0,
+      "machine": "Machine1"
+    }
+  ],
+  "initial_state": {
+    "machines": [],
+    "operations": []
+  }
+}
